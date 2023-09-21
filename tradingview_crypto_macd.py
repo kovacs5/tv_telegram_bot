@@ -7,9 +7,6 @@ def send_msg(text):
     results = requests.get(url_req).json()
     return results
 
-#username = 'tvcryptostockbot@gmail.com'
-#password = 'tvcryptostockbot123'
-
 tv = TvDatafeedLive()
 
 symbol_list = ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'XRPUSDT', 'ADAUSDT', 'DOGEUSDT', 'SOLUSDT', 'TRXUSDT', 'DOTUSDT', 'MATICUSDT', 'LTCUSDT', 'LINKUSDT']
