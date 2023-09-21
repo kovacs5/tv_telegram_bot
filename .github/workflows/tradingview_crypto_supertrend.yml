@@ -1,4 +1,4 @@
-name: tv_c_s
+name: tradingview_crypto_supertrend
 
 on:
   schedule:
