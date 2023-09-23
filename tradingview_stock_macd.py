@@ -38,33 +38,6 @@ for symbol in symbol_list:
 
     print(df.tail(1))
 
-for symbol2 in symbol_list:
-
-    df2 = tv.get_hist(symbol=symbol2,exchange='BIST',interval=Interval.in_1_hour,n_bars=1000)
-
-    # Calculate short-term and long-term moving averages
-    macd_df2 = macd(df2['close'],window_slow=26,window_fast=12)
-    macd_signal_df2 = macd_signal(df2['close'],window_slow=26,window_fast=12,window_sign=9)
-
-    df2['macd'] = macd_df2
-    df2['signal'] = macd_signal_df2
-
-    macd_son_df2 = df2['macd'].iloc[-1]
-    macd_son_1_df2 = df2['macd'].iloc[-2]
-    macd_son_2_df2 = df2['macd'].iloc[-3]
-    signal_son_df2 = df2['signal'].iloc[-1]
-    signal_son_1_df2 = df2['signal'].iloc[-2]
-    signal_son_2_df2 = df2['signal'].iloc[-3]
-
-
-    if ((macd_son_df2 > signal_son_df2 and macd_son_1_df2 < signal_son_1_df2) | (macd_son_df2 > signal_son_df2 and macd_son_2_df2 < signal_son_2_df2)):
-        send_msg(symbol2 + ' için 1 saatlikte MACD CROSS al sinyali 🟢')
-
-    elif ((macd_son_df2 < signal_son_df2 and macd_son_1_df2 > signal_son_1_df2) | (macd_son_df2 < signal_son_df2 and macd_son_2_df2 > signal_son_2_df2)):
-        send_msg(symbol2 + ' için 1 saatlikte MACD CROSS sat sinyali 🔴')
-
-    print(df2.tail(1))
-
 for symbol3 in symbol_list_2:
 
     df3 = tv.get_hist(symbol=symbol3,exchange='BIST',interval=Interval.in_4_hour,n_bars=1000)
@@ -90,29 +63,3 @@ for symbol3 in symbol_list_2:
         send_msg(symbol3 + ' için 4 saatlikte MACD CROSS sat sinyali 🔴')
 
     print(df3.tail(1))
-
-for symbol4 in symbol_list_2:
-
-    df4 = tv.get_hist(symbol=symbol4,exchange='BIST',interval=Interval.in_1_hour,n_bars=1000)
-
-    # Calculate short-term and long-term moving averages
-    macd_1_df4 = macd(df4['close'],window_slow=26,window_fast=12)
-    macd_signal_1_df4 = macd_signal(df4['close'],window_slow=26,window_fast=12,window_sign=9)
-
-    df4['macd'] = macd_1_df4
-    df4['signal'] = macd_signal_1_df4
-
-    macd_son_df4 = df4['macd'].iloc[-1]
-    macd_son_1_df4 = df4['macd'].iloc[-2]
-    macd_son_2_df4 = df4['macd'].iloc[-3]
-    signal_son_df4 = df4['signal'].iloc[-1]
-    signal_son_1_df4 = df4['signal'].iloc[-2]
-    signal_son_2_df4 = df4['signal'].iloc[-3]
-
-    if ((macd_son_df4 > signal_son_df4 and macd_son_1_df4 < signal_son_1_df4) | (macd_son_df4 > signal_son_df4 and macd_son_2_df4 < signal_son_2_df4)):
-        send_msg(symbol4 + ' için 1 saatlikte MACD CROSS al sinyali 🟢')
-
-    elif ((macd_son_df4 < signal_son_df4 and macd_son_1_df4 > signal_son_1_df4) | (macd_son_df4 < signal_son_df4 and macd_son_2_df4 > signal_son_2_df4)):
-        send_msg(symbol4 + ' için 1 saatlikte MACD CROSS sat sinyali 🔴')
-
-    print(df4.tail(1))
