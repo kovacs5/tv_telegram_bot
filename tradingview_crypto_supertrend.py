@@ -32,11 +32,11 @@ for symbol in symbol_list:
     
     # renk yeşile dönüyor, trend yükselişe geçti
     if (son_kapanis > son_supertrend_deger and onceki_kapanis < onceki_supertrend_deger) | (son_kapanis > onceki_supertrend_deger and onceki_kapanis < onceki_supertrend_deger):
-        send_msg(symbol + ' için 4 saatlikte Supertrend AL sinyali 🟢')
+        send_msg(symbol + ' için 4 saatlikte Supertrend AL sinyali 🟢\n' + 'Anlık Değer: ' + str(son_kapanis) + '\n' + 'Önceki Değer: ' + str(onceki_kapanis))
 
     # renk kırmızıya dönüyor, trend düşüşe geçti
     if (son_kapanis < son_supertrend_deger and onceki_kapanis > onceki_supertrend_deger) | (son_kapanis < onceki_supertrend_deger and onceki_kapanis > onceki_supertrend_deger):
-        send_msg(symbol + ' için 4 saatlikte Supertrend SAT sinyali 🔴')
+        send_msg(symbol + ' için 4 saatlikte Supertrend SAT sinyali 🔴\n' + 'Anlık Değer: ' + str(son_kapanis) + '\n' + 'Önceki Değer: ' + str(onceki_kapanis))
     
     print(df.tail(1))
 
@@ -60,11 +60,11 @@ for symbol2 in symbol_list:
     
     # renk yeşile dönüyor, trend yükselişe geçti
     if (df2_son_kapanis > df2_son_supertrend_deger and df2_onceki_kapanis < df2_onceki_supertrend_deger) | (df2_son_kapanis > df2_onceki_supertrend_deger and df2_onceki_kapanis < df2_onceki_supertrend_deger):
-        send_msg(symbol2 + ' için 1 saatlikte Supertrend AL sinyali 🟢')
+        send_msg(symbol2 + ' için 1 saatlikte Supertrend AL sinyali 🟢\n' + 'Anlık Değer: ' + str(df2_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df2_onceki_kapanis))
 
     # renk kırmızıya dönüyor, trend düşüşe geçti
     if (df2_son_kapanis < df2_son_supertrend_deger and df2_onceki_kapanis > df2_onceki_supertrend_deger) | (df2_son_kapanis < df2_onceki_supertrend_deger and df2_onceki_kapanis > df2_onceki_supertrend_deger):
-        send_msg(symbol2 + ' için 1 saatlikte Supertrend SAT sinyali 🔴')
+        send_msg(symbol2 + ' için 1 saatlikte Supertrend SAT sinyali 🔴\n' + 'Anlık Değer: ' + str(df2_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df2_onceki_kapanis))
     
     print(df2.tail(1))
 
@@ -88,11 +88,11 @@ for symbol3 in symbol_list_2:
     
     # renk yeşile dönüyor, trend yükselişe geçti
     if (df3_son_kapanis > df3_son_supertrend_deger and df3_onceki_kapanis < df3_onceki_supertrend_deger) | (df3_son_kapanis > df3_onceki_supertrend_deger and df3_onceki_kapanis < df3_onceki_supertrend_deger):
-        send_msg(symbol3 + ' için 4 saatlikte Supertrend AL sinyali 🟢')
+        send_msg(symbol3 + ' için 4 saatlikte Supertrend AL sinyali 🟢\n' + 'Anlık Değer: ' + str(df3_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df3_onceki_kapanis))
 
     # renk kırmızıya dönüyor, trend düşüşe geçti
     if (df3_son_kapanis < df3_son_supertrend_deger and df3_onceki_kapanis > df3_onceki_supertrend_deger) | (df3_son_kapanis < df3_onceki_supertrend_deger and df3_onceki_kapanis > df3_onceki_supertrend_deger):
-        send_msg(symbol3 + ' için 4 saatlikte Supertrend SAT sinyali 🔴')
+        send_msg(symbol3 + ' için 4 saatlikte Supertrend SAT sinyali 🔴\n' + 'Anlık Değer: ' + str(df3_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df3_onceki_kapanis))
     
     print(df3.tail(1))
 
@@ -116,10 +116,10 @@ for symbol4 in symbol_list_2:
     
     # renk yeşile dönüyor, trend yükselişe geçti
     if (df4_son_kapanis > df4_son_supertrend_deger and df4_onceki_kapanis < df4_onceki_supertrend_deger) | (df4_son_kapanis > df4_onceki_supertrend_deger and df4_onceki_kapanis < df4_onceki_supertrend_deger):
-        send_msg(symbol4 + ' için 1 saatlikte Supertrend AL sinyali 🟢')
+        send_msg(symbol4 + ' için 1 saatlikte Supertrend AL sinyali 🟢\n' + 'Anlık Değer: ' + str(df4_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df4_onceki_kapanis))
 
     # renk kırmızıya dönüyor, trend düşüşe geçti
     if (df4_son_kapanis < df4_son_supertrend_deger and df4_onceki_kapanis > df4_onceki_supertrend_deger) | (df4_son_kapanis < df4_onceki_supertrend_deger and df4_onceki_kapanis > df4_onceki_supertrend_deger):
-        send_msg(symbol4 + ' için 1 saatlikte Supertrend SAT sinyali 🔴')
+        send_msg(symbol4 + ' için 1 saatlikte Supertrend SAT sinyali 🔴\n' + 'Anlık Değer: ' + str(df4_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df4_onceki_kapanis))
     
     print(df4.tail(1))
