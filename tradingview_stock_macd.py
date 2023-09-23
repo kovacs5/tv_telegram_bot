@@ -1,6 +1,7 @@
 from tvDatafeed import TvDatafeed, Interval
 import requests
 from ta.trend import macd, macd_signal
+import pandas_ta as pandas_ta
 
 def send_msg(text):
     url_req = 'https://api.telegram.org/bot5670518697:AAH3AEzOSUpoqbHH4InuQL4KWGaI4YN_7-I/sendMessage?chat_id=1592879913&text=' + text
@@ -36,6 +37,27 @@ for symbol in symbol_list:
     elif ((macd_son < signal_son and macd_son_1 > signal_son_1) | (macd_son < signal_son and macd_son_2 > signal_son_2)):
         send_msg(symbol + ' için 4 saatlikte MACD CROSS sat sinyali 🔴')
 
+    ########################################################################
+
+    sma_50 = pandas_ta.sma(df['close'],50)
+    sma_200 = pandas_ta.sma(df['close'],200)
+
+    df['sma_50'] = sma_50
+    df['sma_200'] = sma_200
+
+    sma_50_son = df['sma_50'].iloc[-1]
+    sma_50_son_1 = df['sma_50'].iloc[-2]
+    sma_50_son_2 = df['sma_50'].iloc[-3]
+    sma_200_son = df['sma_200'].iloc[-1]
+    sma_200_son_1 = df['sma_200'].iloc[-2]
+    sma_200_son_2 = df['sma_200'].iloc[-3]
+
+    if ((sma_50_son > sma_200_son and sma_50_son_1 < sma_200_son_1) | (sma_50_son > sma_200_son and sma_50_son_2 < sma_200_son_2)):
+        send_msg(symbol + ' için 4 saatlikte GOLDEN CROSS al sinyali 🟢')
+
+    elif ((sma_50_son < sma_200_son and sma_50_son_1 > sma_200_son_1) | (sma_50_son < sma_200_son and sma_50_son_2 > sma_200_son_2)):
+        send_msg(symbol + ' için 4 saatlikte GOLDEN CROSS sat sinyali 🔴')
+
     print(df.tail(1))
 
 for symbol3 in symbol_list_2:
@@ -61,5 +83,26 @@ for symbol3 in symbol_list_2:
 
     elif ((macd_son_df3 < signal_son_df3 and macd_son_1_df3 > signal_son_1_df3) | (macd_son_df3 < signal_son_df3 and macd_son_2_df3 > signal_son_2_df3)):
         send_msg(symbol3 + ' için 4 saatlikte MACD CROSS sat sinyali 🔴')
+
+    ########################################################################
+
+    sma_50_df3 = pandas_ta.sma(df3['close'],50)
+    sma_200_df3 = pandas_ta.sma(df3['close'],200)
+
+    df3['sma_50'] = sma_50_df3
+    df3['sma_200'] = sma_200_df3
+
+    sma_50_df3_son = df3['sma_50'].iloc[-1]
+    sma_50_df3_son_1 = df3['sma_50'].iloc[-2]
+    sma_50_df3_son_2 = df3['sma_50'].iloc[-3]
+    sma_200_df3_son = df3['sma_200'].iloc[-1]
+    sma_200_df3_son_1 = df3['sma_200'].iloc[-2]
+    sma_200_df3_son_2 = df3['sma_200'].iloc[-3]
+
+    if ((sma_50_df3_son > sma_200_df3_son and sma_50_df3_son_1 < sma_200_df3_son_1) | (sma_50_df3_son > sma_200_df3_son and sma_50_df3_son_2 < sma_200_df3_son_2)):
+        send_msg(symbol3 + ' için 4 saatlikte GOLDEN CROSS al sinyali 🟢')
+
+    elif ((sma_50_df3_son < sma_200_df3_son and sma_50_df3_son_1 > sma_200_df3_son_1) | (sma_50_df3_son < sma_200_df3_son and sma_50_df3_son_2 > sma_200_df3_son_2)):
+        send_msg(symbol3 + ' için 4 saatlikte GOLDEN CROSS sat sinyali 🔴')
 
     print(df3.tail(1))
