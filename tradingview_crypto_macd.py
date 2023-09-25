@@ -85,10 +85,10 @@ for symbol2 in symbol_list:
     signal_son_2_df2 = df2['signal'].iloc[-3]
 
     if ((macd_son_df2 > signal_son_df2 and macd_son_1_df2 < signal_son_1_df2) | (macd_son_df2 > signal_son_df2 and macd_son_2_df2 < signal_son_2_df2)):
-        send_msg(symbol2 + ' için 4 saatlikte MACD CROSS al sinyali 🟢\n' + 'Anlık Değer: ' + str(df2_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df2_onceki_kapanis))
+        send_msg(symbol2 + ' için 1 saatlikte MACD CROSS al sinyali 🟢\n' + 'Anlık Değer: ' + str(df2_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df2_onceki_kapanis))
 
     elif ((macd_son_df2 < signal_son_df2 and macd_son_1_df2 > signal_son_1_df2) | (macd_son_df2 < signal_son_df2 and macd_son_2_df2 > signal_son_2_df2)):
-        send_msg(symbol2 + ' için 4 saatlikte MACD CROSS sat sinyali 🔴\n' + 'Anlık Değer: ' + str(df2_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df2_onceki_kapanis))
+        send_msg(symbol2 + ' için 1 saatlikte MACD CROSS sat sinyali 🔴\n' + 'Anlık Değer: ' + str(df2_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df2_onceki_kapanis))
 
     ########################################################################
 
@@ -106,10 +106,10 @@ for symbol2 in symbol_list:
     sma_200_df2_son_2 = df2['sma_200'].iloc[-3]
 
     if ((sma_50_df2_son > sma_200_df2_son and sma_50_df2_son_1 < sma_200_df2_son_1) | (sma_50_df2_son > sma_200_df2_son and sma_50_df2_son_2 < sma_200_df2_son_2)):
-        send_msg(symbol2 + ' için 4 saatlikte GOLDEN CROSS al sinyali 🟢\n' + 'Anlık Değer: ' + str(df2_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df2_onceki_kapanis))
+        send_msg(symbol2 + ' için 1 saatlikte GOLDEN CROSS al sinyali 🟢\n' + 'Anlık Değer: ' + str(df2_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df2_onceki_kapanis))
 
     elif ((sma_50_df2_son < sma_200_df2_son and sma_50_df2_son_1 > sma_200_df2_son_1) | (sma_50_df2_son < sma_200_df2_son and sma_50_df2_son_2 > sma_200_df2_son_2)):
-        send_msg(symbol2 + ' için 4 saatlikte GOLDEN CROSS sat sinyali 🔴\n' + 'Anlık Değer: ' + str(df2_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df2_onceki_kapanis))
+        send_msg(symbol2 + ' için 1 saatlikte GOLDEN CROSS sat sinyali 🔴\n' + 'Anlık Değer: ' + str(df2_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df2_onceki_kapanis))
 
     print(df2.tail(1))
 
@@ -185,10 +185,10 @@ for symbol4 in symbol_list_2:
     signal_son_2_df4 = df4['signal'].iloc[-3]
 
     if ((macd_son_df4 > signal_son_df4 and macd_son_1_df4 < signal_son_1_df4) | (macd_son_df4 > signal_son_df4 and macd_son_2_df4 < signal_son_2_df4)):
-        send_msg(symbol4 + ' için 4 saatlikte MACD CROSS al sinyali 🟢\n' + 'Anlık Değer: ' + str(df4_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df4_onceki_kapanis))
+        send_msg(symbol4 + ' için 1 saatlikte MACD CROSS al sinyali 🟢\n' + 'Anlık Değer: ' + str(df4_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df4_onceki_kapanis))
 
     elif ((macd_son_df4 < signal_son_df4 and macd_son_1_df4 > signal_son_1_df4) | (macd_son_df4 < signal_son_df4 and macd_son_2_df4 > signal_son_2_df4)):
-        send_msg(symbol4 + ' için 4 saatlikte MACD CROSS sat sinyali 🔴\n' + 'Anlık Değer: ' + str(df4_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df4_onceki_kapanis))
+        send_msg(symbol4 + ' için 1 saatlikte MACD CROSS sat sinyali 🔴\n' + 'Anlık Değer: ' + str(df4_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df4_onceki_kapanis))
 
     ########################################################################
 
@@ -206,9 +206,9 @@ for symbol4 in symbol_list_2:
     sma_200_df4_son_2 = df4['sma_200'].iloc[-3]
 
     if ((sma_50_df4_son > sma_200_df4_son and sma_50_df4_son_1 < sma_200_df4_son_1) | (sma_50_df4_son > sma_200_df4_son and sma_50_df4_son_2 < sma_200_df4_son_2)):
-        send_msg(symbol4 + ' için 4 saatlikte GOLDEN CROSS al sinyali 🟢\n' + 'Anlık Değer: ' + str(df4_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df4_onceki_kapanis))
+        send_msg(symbol4 + ' için 1 saatlikte GOLDEN CROSS al sinyali 🟢\n' + 'Anlık Değer: ' + str(df4_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df4_onceki_kapanis))
 
     elif ((sma_50_df4_son < sma_200_df4_son and sma_50_df4_son_1 > sma_200_df4_son_1) | (sma_50_df4_son < sma_200_df4_son and sma_50_df4_son_2 > sma_200_df4_son_2)):
-        send_msg(symbol4 + ' için 4 saatlikte GOLDEN CROSS sat sinyali 🔴\n' + 'Anlık Değer: ' + str(df4_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df4_onceki_kapanis))
+        send_msg(symbol4 + ' için 1 saatlikte GOLDEN CROSS sat sinyali 🔴\n' + 'Anlık Değer: ' + str(df4_son_kapanis) + '\n' + 'Önceki Değer: ' + str(df4_onceki_kapanis))
 
     print(df4.tail(1))
