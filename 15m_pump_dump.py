@@ -16,7 +16,7 @@ symbol_list_2 = ['XLMUSDT', 'ATOMUSDT', 'VETUSDT', 'EOSUSDT', 'XTZUSDT', 'UNIUSD
 
 for symbol in symbol_list:
 
-    df = tv.get_hist(symbol=symbol,exchange='BINANCE',interval=Interval.in_15_minute,n_bars=1000)
+    df = tv.get_hist(symbol=symbol,exchange='BINANCE',interval=Interval.in_30_minute,n_bars=1000)
 
     close_1 = df['close'].iloc[-1]
     close_2 = df['close'].iloc[-2]
@@ -39,7 +39,7 @@ for symbol in symbol_list:
 
 for symbol2 in symbol_list_2:
 
-    df2 = tv.get_hist(symbol=symbol2,exchange='BINANCE',interval=Interval.in_15_minute,n_bars=1000)
+    df2 = tv.get_hist(symbol=symbol2,exchange='BINANCE',interval=Interval.in_30_minute,n_bars=1000)
 
     close_1_df2 = df2['close'].iloc[-1]
     close_2_df2 = df2['close'].iloc[-2]
