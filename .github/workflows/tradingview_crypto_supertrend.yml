@@ -2,7 +2,7 @@ name: tradingview_crypto_supertrend
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 env:
