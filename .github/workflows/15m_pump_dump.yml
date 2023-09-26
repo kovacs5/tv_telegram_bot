@@ -2,7 +2,7 @@ name: 15m_pump_dump
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "* * * * *"
   workflow_dispatch:
 
 env:
