@@ -95,10 +95,10 @@ for symbol3 in symbol_list:
     df3son_kapanis = df3['close'].iloc[-1]
     df3onceki_kapanis = df3['close'].iloc[-2]
 
-    if (df3rsi > df3rsi_1 and df3rsi > 60) & ((df3volume > df3volume_1*4) | (df3volume_1 > df3volume_2*4)):
+    if (df3rsi > df3rsi_1 and df3rsi > 60) & ((df3volume > df3volume_1*5) | (df3volume_1 > df3volume_2*5)):
         send_msg(symbol3 + ' için 5 dakikalıkta VOLUME PUMP 🟢\n' + 'Anlık Değer: ' + str(df3son_kapanis) + '\n' + 'Önceki Değer: ' + str(df3onceki_kapanis))
 
-    if (df3rsi < df3rsi_1 and df3rsi < 60) & (df3['close'].iloc[-1] < df3['close'].iloc[-2]) & ((df3volume > df3volume_1*4) | (df3volume_1 > df3volume_2*4)):
+    if (df3rsi < df3rsi_1 and df3rsi < 60) & (df3['close'].iloc[-1] < df3['close'].iloc[-2]) & ((df3volume > df3volume_1*5) | (df3volume_1 > df3volume_2*5)):
         send_msg(symbol3 + ' için 5 dakikalıkta VOLUME DUMP 🔴\n' + 'Anlık Değer: ' + str(df3son_kapanis) + '\n' + 'Önceki Değer: ' + str(df3onceki_kapanis))
 
 for symbol4 in symbol_list_2:
@@ -124,10 +124,10 @@ for symbol4 in symbol_list_2:
     df4son_kapanis = df4['close'].iloc[-1]
     df4onceki_kapanis = df4['close'].iloc[-2]
 
-    if (df4rsi > df4rsi_1 and df4rsi > 60) & ((df4volume > df4volume_1*4) | (df4volume_1 > df4volume_2*4)):
+    if (df4rsi > df4rsi_1 and df4rsi > 60) & ((df4volume > df4volume_1*5) | (df4volume_1 > df4volume_2*5)):
         send_msg(symbol4 + ' için 5 dakikalıkta VOLUME PUMP 🟢\n' + 'Anlık Değer: ' + str(df4son_kapanis) + '\n' + 'Önceki Değer: ' + str(df4onceki_kapanis))
 
-    if (df4rsi < df4rsi_1 and df4rsi < 60) & (df4['close'].iloc[-1] < df4['close'].iloc[-2]) & ((df4volume > df4volume_1*4) | (df4volume_1 > df4volume_2*4)):
+    if (df4rsi < df4rsi_1 and df4rsi < 60) & (df4['close'].iloc[-1] < df4['close'].iloc[-2]) & ((df4volume > df4volume_1*5) | (df4volume_1 > df4volume_2*5)):
         send_msg(symbol4 + ' için 5 dakikalıkta VOLUME DUMP 🔴\n' + 'Anlık Değer: ' + str(df4son_kapanis) + '\n' + 'Önceki Değer: ' + str(df4onceki_kapanis))
 
 for symbol5 in symbol_list:
@@ -153,10 +153,10 @@ for symbol5 in symbol_list:
     df5son_kapanis = df5['close'].iloc[-1]
     df5onceki_kapanis = df5['close'].iloc[-2]
 
-    if (df5rsi > df5rsi_1 and df5rsi > 60) & ((df5volume > df5volume_1*3) | (df5volume_1 > df5volume_2*3)):
+    if (df5rsi > df5rsi_1 and df5rsi > 60) & ((df5volume > df5volume_1*3.5) | (df5volume_1 > df5volume_2*3.5)):
         send_msg(symbol5 + ' için 30 dakikalıkta VOLUME PUMP 🟢\n' + 'Anlık Değer: ' + str(df5son_kapanis) + '\n' + 'Önceki Değer: ' + str(df5onceki_kapanis))
 
-    if (df5rsi < df5rsi_1 and df5rsi < 60) & (df5['close'].iloc[-1] < df5['close'].iloc[-2]) & ((df5volume > df5volume_1*3) | (df5volume_1 > df5volume_2*3)):
+    if (df5rsi < df5rsi_1 and df5rsi < 60) & (df5['close'].iloc[-1] < df5['close'].iloc[-2]) & ((df5volume > df5volume_1*3.5) | (df5volume_1 > df5volume_2*3.5)):
         send_msg(symbol5 + ' için 30 dakikalıkta VOLUME DUMP 🔴\n' + 'Anlık Değer: ' + str(df5son_kapanis) + '\n' + 'Önceki Değer: ' + str(df5onceki_kapanis))
 
 for symbol6 in symbol_list_2:
@@ -182,8 +182,8 @@ for symbol6 in symbol_list_2:
     df6son_kapanis = df6['close'].iloc[-1]
     df6onceki_kapanis = df6['close'].iloc[-2]
 
-    if (df6rsi > df6rsi_1 and df6rsi > 60) & ((df6volume > df6volume_1*3) | (df6volume_1 > df6volume_2*3)):
+    if (df6rsi > df6rsi_1 and df6rsi > 60) & ((df6volume > df6volume_1*3.5) | (df6volume_1 > df6volume_2*3.5)):
         send_msg(symbol6 + ' için 30 dakikalıkta VOLUME PUMP 🟢\n' + 'Anlık Değer: ' + str(df6son_kapanis) + '\n' + 'Önceki Değer: ' + str(df6onceki_kapanis))
 
-    if (df6rsi < df6rsi_1 and df6rsi < 60) & (df6['close'].iloc[-1] < df6['close'].iloc[-2]) & ((df6volume > df6volume_1*3) | (df6volume_1 > df6volume_2*3)):
+    if (df6rsi < df6rsi_1 and df6rsi < 60) & (df6['close'].iloc[-1] < df6['close'].iloc[-2]) & ((df6volume > df6volume_1*3.5) | (df6volume_1 > df6volume_2*3.5)):
         send_msg(symbol6 + ' için 30 dakikalıkta VOLUME DUMP 🔴\n' + 'Anlık Değer: ' + str(df6son_kapanis) + '\n' + 'Önceki Değer: ' + str(df6onceki_kapanis))
