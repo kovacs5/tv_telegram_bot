@@ -124,7 +124,7 @@ for interval in intervals:
             interval_text = "4 saatlikte"
 
         if((df3macd_son > df3signal_son and df3macd_son_1 < df3signal_son_1) & (df3rsi > df3rsi_1)):
-            send_msg(symbol3 + ' için ' + interval_text + ' MACD CROSS ve RSI YUKARI 🟢\n' + 'Anlık Değer: ' + str(df3son_kapanis) + '\n' + 'Önceki Değer: ' + str(df3onceki_kapanis))
+            send_msg('⚡ ' + symbol3 + ' için ' + interval_text + ' MACD CROSS ve RSI YUKARI 🟢\n' + 'Anlık Değer: ' + str(df3son_kapanis) + '\n' + 'Önceki Değer: ' + str(df3onceki_kapanis))
 
         if((df3macd_son < df3signal_son and df3macd_son_1 > df3signal_son_1) & (df3rsi < df3rsi_1)):
-            send_msg(symbol3 + ' için ' + interval_text + ' MACD CROSS ve RSI AŞAĞI 🔴\n' + 'Anlık Değer: ' + str(df3son_kapanis) + '\n' + 'Önceki Değer: ' + str(df3onceki_kapanis))
+            send_msg('⚡ ' + symbol3 + ' için ' + interval_text + ' MACD CROSS ve RSI AŞAĞI 🔴\n' + 'Anlık Değer: ' + str(df3son_kapanis) + '\n' + 'Önceki Değer: ' + str(df3onceki_kapanis))
