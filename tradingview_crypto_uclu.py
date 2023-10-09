@@ -17,114 +17,56 @@ symbol_list = ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'XRPUSDT', 'NEOUSDT', 'INJUSDT',
 symbol_list_2 = ['XMRUSDT', 'ATOMUSDT', 'TRBUSDT', 'EOSUSDT', 'RNDRUSDT', 'UNIUSDT', 'FILUSDT', 'ANTUSDT', 'BURGERUSDT', 'AAVEUSDT', 'UNFIUSDT', 'FRONTUSDT']
 symbol_list_3 = ['TOTAL', 'TOTAL2', 'TOTAL3']
 
+intervals_2 = [Interval.in_daily, Interval.in_4_hour, Interval.in_1_hour]
+
 sembol_listesi = [symbol_list, symbol_list_2]
 
-for semboller in sembol_listesi:
+for interval_1 in intervals_2:
 
-    for symbol in semboller:
+    for semboller in sembol_listesi:
 
-        df = tv.get_hist(symbol=symbol,exchange='BINANCE',interval=Interval.in_daily,n_bars=1000)
-        fast = 8
-        slow = 16
-        signal = 11
-        
-        # Calculate short-term and long-term moving averages
-        macd_value = macd(df['close'],slow,fast)
-        df['macd'] = macd_value
-        signal_value = pandas_ta.sma(macd_value,signal)
-        df['signal'] = signal_value
+        for symbol in semboller:
 
-        son_kapanis = df['close'].iloc[-1]
-        onceki_kapanis = df['close'].iloc[-2]
+            if (semboller == symbol_list_3):
+                exchange = 'CRYPTOCAP'
+            else:
+                exchange = 'BINANCE'
 
-        macd_son = df['macd'].iloc[-1]
-        macd_son_1 = df['macd'].iloc[-2]
-        signal_son = df['signal'].iloc[-1]
-        signal_son_1 = df['signal'].iloc[-2]
+            df = tv.get_hist(symbol=symbol,exchange=exchange,interval=interval_1,n_bars=1000)
+            fast = 8
+            slow = 16
+            signal = 11
+            
+            # Calculate short-term and long-term moving averages
+            macd_value = macd(df['close'],slow,fast)
+            df['macd'] = macd_value
+            signal_value = pandas_ta.sma(macd_value,signal)
+            df['signal'] = signal_value
 
-        df['rsi'] = RSIIndicator(df['close'], window=14).rsi()
+            son_kapanis = df['close'].iloc[-1]
+            onceki_kapanis = df['close'].iloc[-2]
 
-        rsi = df['rsi'].iloc[-1]
-        rsi_1 = df['rsi'].iloc[-2]
+            macd_son = df['macd'].iloc[-1]
+            macd_son_1 = df['macd'].iloc[-2]
+            signal_son = df['signal'].iloc[-1]
+            signal_son_1 = df['signal'].iloc[-2]
 
-        if((macd_son > signal_son and macd_son_1 < signal_son_1) & (rsi > rsi_1)):
-            send_msg('⚡ ' + symbol + ' için günlükte MACD CROSS ve RSI YUKARI 🟢\n' + 'Anlık Değer: ' + str(son_kapanis) + '\n' + 'Önceki Değer: ' + str(onceki_kapanis))
+            df['rsi'] = RSIIndicator(df['close'], window=14).rsi()
 
-        if((macd_son < signal_son and macd_son_1 > signal_son_1) & (rsi < rsi_1)):
-            send_msg('⚡ ' + symbol + ' için günlükte MACD CROSS ve RSI AŞAĞI 🔴\n' + 'Anlık Değer: ' + str(son_kapanis) + '\n' + 'Önceki Değer: ' + str(onceki_kapanis))
+            rsi = df['rsi'].iloc[-1]
+            rsi_1 = df['rsi'].iloc[-2]
 
-for df2semboller in sembol_listesi:
+            if interval_1 == Interval.in_daily:
+                interval_text_1 = "günlükte"
 
-    for symbol2 in df2semboller:
+            if interval_1 == Interval.in_4_hour:
+                interval_text_1 = "4 saatlikte"
 
-        df2 = tv.get_hist(symbol=symbol2,exchange='BINANCE',interval=Interval.in_4_hour,n_bars=1000)
-        df2fast = 8
-        df2slow = 16
-        df2signal = 11
-        
-        # Calculate short-term and long-term moving averages
-        df2macd_value = macd(df2['close'],df2slow,df2fast)
-        df2['macd'] = df2macd_value
-        df2signal_value = pandas_ta.sma(df2macd_value,df2signal)
-        df2['signal'] = signal_value
+            if interval_1 == Interval.in_1_hour:
+                interval_text_1 = "1 saatlikte"
 
-        df2son_kapanis = df2['close'].iloc[-1]
-        df2onceki_kapanis = df2['close'].iloc[-2]
+            if((macd_son > signal_son and macd_son_1 < signal_son_1) & (rsi > rsi_1)):
+                send_msg('⚡ ' + symbol + ' için ' + interval_text_1 + ' MACD CROSS ve RSI YUKARI 🟢\n' + 'Anlık Değer: ' + str(son_kapanis) + '\n' + 'Önceki Değer: ' + str(onceki_kapanis))
 
-        df2macd_son = df2['macd'].iloc[-1]
-        df2macd_son_1 = df2['macd'].iloc[-2]
-        df2signal_son = df2['signal'].iloc[-1]
-        df2signal_son_1 = df2['signal'].iloc[-2]
-
-        df2['rsi'] = RSIIndicator(df2['close'], window=14).rsi()
-
-        df2rsi = df2['rsi'].iloc[-1]
-        df2rsi_1 = df2['rsi'].iloc[-2]
-
-        if((df2macd_son > df2signal_son and df2macd_son_1 < df2signal_son_1) & (df2rsi > df2rsi_1)):
-            send_msg('⚡ ' + symbol2 + ' için 4 saatlikte MACD CROSS ve RSI YUKARI 🟢\n' + 'Anlık Değer: ' + str(df2son_kapanis) + '\n' + 'Önceki Değer: ' + str(df2onceki_kapanis))
-
-        if((df2macd_son < df2signal_son and df2macd_son_1 > df2signal_son_1) & (df2rsi < df2rsi_1)):
-            send_msg('⚡ ' + symbol2 + ' için 4 saatlikte MACD CROSS ve RSI AŞAĞI 🔴\n' + 'Anlık Değer: ' + str(df2son_kapanis) + '\n' + 'Önceki Değer: ' + str(df2onceki_kapanis))
-
-intervals = [Interval.in_daily, Interval.in_4_hour]
-
-for interval in intervals:
-
-    for symbol3 in symbol_list_3:
-
-        df3 = tv.get_hist(symbol=symbol3,exchange='CRYPTOCAP',interval=interval,n_bars=1000)
-        df3fast = 8
-        df3slow = 16
-        df3signal = 11
-        
-        # Calculate short-term and long-term moving averages
-        df3macd_value = macd(df3['close'],df3slow,df3fast)
-        df3['macd'] = df3macd_value
-        df3signal_value = pandas_ta.sma(df3macd_value,df3signal)
-        df3['signal'] = signal_value
-
-        df3son_kapanis = df3['close'].iloc[-1]
-        df3onceki_kapanis = df3['close'].iloc[-2]
-
-        df3macd_son = df3['macd'].iloc[-1]
-        df3macd_son_1 = df3['macd'].iloc[-2]
-        df3signal_son = df3['signal'].iloc[-1]
-        df3signal_son_1 = df3['signal'].iloc[-2]
-
-        df3['rsi'] = RSIIndicator(df3['close'], window=14).rsi()
-
-        df3rsi = df3['rsi'].iloc[-1]
-        df3rsi_1 = df3['rsi'].iloc[-2]
-
-        if interval == Interval.in_daily:
-            interval_text = "günlükte"
-
-        if interval == Interval.in_4_hour:
-            interval_text = "4 saatlikte"
-
-        if((df3macd_son > df3signal_son and df3macd_son_1 < df3signal_son_1) & (df3rsi > df3rsi_1)):
-            send_msg('⚡ ' + symbol3 + ' için ' + interval_text + ' MACD CROSS ve RSI YUKARI 🟢\n' + 'Anlık Değer: ' + str(df3son_kapanis) + '\n' + 'Önceki Değer: ' + str(df3onceki_kapanis))
-
-        if((df3macd_son < df3signal_son and df3macd_son_1 > df3signal_son_1) & (df3rsi < df3rsi_1)):
-            send_msg('⚡ ' + symbol3 + ' için ' + interval_text + ' MACD CROSS ve RSI AŞAĞI 🔴\n' + 'Anlık Değer: ' + str(df3son_kapanis) + '\n' + 'Önceki Değer: ' + str(df3onceki_kapanis))
+            if((macd_son < signal_son and macd_son_1 > signal_son_1) & (rsi < rsi_1)):
+                send_msg('⚡ ' + symbol + ' için ' + interval_text_1 + ' MACD CROSS ve RSI AŞAĞI 🔴\n' + 'Anlık Değer: ' + str(son_kapanis) + '\n' + 'Önceki Değer: ' + str(onceki_kapanis))
