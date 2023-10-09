@@ -2,7 +2,7 @@ name: tradingview_crypto_uclu
 
 on:
   schedule:
-    - cron: "0 */3 * * *"
+    - cron: "0 */1 * * *"
   workflow_dispatch:
 
 env:
