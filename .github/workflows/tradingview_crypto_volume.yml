@@ -2,7 +2,7 @@ name: tradingview_crypto_volume
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/2 * * * *"
   workflow_dispatch:
 
 env:
