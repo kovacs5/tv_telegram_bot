@@ -115,9 +115,6 @@ for interval_3 in intervals_4:
             if interval_3 == Interval.in_4_hour:
                 interval_text_3 = "4 saatlikte"
 
-            if interval_3 == Interval.in_1_hour:
-                interval_text_3 = "1 saatlikte"
-
             if((df2macd_son > df2signal_son and df2macd_son_1 < df2signal_son_1) & (df2rsi > df2rsi_1)):
                 send_msg('⚡ ' + symbol2 + ' için ' + interval_text_3 + ' MACD CROSS ve RSI YUKARI 🟢\n' + 'Anlık Değer: ' + str(df2son_kapanis) + '\n' + 'Önceki Değer: ' + str(df2onceki_kapanis))
 
